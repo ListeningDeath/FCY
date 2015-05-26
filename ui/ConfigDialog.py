@@ -172,7 +172,7 @@ class ConfigDialog(QDialog, Ui_ConfigDialog):
             self.person_edit.setText(config.get('LOG', 'person').decode('utf-8'))
             #parameters
             self.testProject.setCurrentIndex(config.getint('PARAMETERS', 'progect'))
-            self.testTimer.setValue(config.getint('PARAMETERS', 'timer'))
+            self.testTimer.setValue(config.getfloat('PARAMETERS', 'timer'))
             self.yulei = config.getfloat('PARAMETERS', 'yulei')
             self.youer = config.getfloat('PARAMETERS', 'youer')
             self.default_digital.setCurrentIndex(config.getint('PARAMETERS', 'default_digital'))
