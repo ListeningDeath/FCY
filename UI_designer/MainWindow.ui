@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>960</width>
+    <height>640</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>960</width>
+    <height>640</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>16777215</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>AYR-641A型发射参数测试仪</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="Icons/Icons.qrc">
+    <normaloff>:/image/new.png</normaloff>:/image/new.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QToolBar{
+font-family:&quot;Arial&quot;;
+}
+QLabel{
+font-family:&quot;Arial&quot;;
+}
+QPushButton{
+font-family:&quot;Arial&quot;;
+}
+QAction{
+font-family:&quot;Arial&quot;;
+}</string>
+  </property>
+  <property name="toolButtonStyle">
+   <enum>Qt::ToolButtonTextUnderIcon</enum>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <property name="spacing">
+     <number>6</number>
+    </property>
+    <property name="margin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QWidget" name="widget_container" native="true"/>
+    </item>
+    <item>
+     <widget class="Line" name="line">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="frame_container">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>160</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>160</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::NoToolBarArea</set>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>80</width>
+     <height>60</height>
+    </size>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="action_config"/>
+   <addaction name="separator"/>
+   <addaction name="action_start"/>
+   <addaction name="action_reset"/>
+   <addaction name="separator"/>
+   <addaction name="action_result"/>
+   <addaction name="action_print"/>
+   <addaction name="separator"/>
+   <addaction name="action_read_report"/>
+   <addaction name="separator"/>
+   <addaction name="action_back"/>
+   <addaction name="action_exit"/>
+  </widget>
+  <action name="action_config">
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="Icons/Icons.qrc">
+     <normaloff>:/toolbar/config2.png</normaloff>:/toolbar/config2.png</iconset>
+   </property>
+   <property name="text">
+    <string>参数设置</string>
+   </property>
+   <property name="toolTip">
+    <string>参数设置</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+    </font>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
+   </property>
+   <property name="autoRepeat">
+    <bool>true</bool>
+   </property>
+   <property name="visible">
+    <bool>true</bool>
+   </property>
+   <property name="priority">
+    <enum>QAction::NormalPriority</enum>
+   </property>
+  </action>
+  <action name="action_start">
+   <property name="icon">
+    <iconset resource="Icons/Icons.qrc">
+     <normaloff>:/toolbar/start.png</normaloff>:/toolbar/start.png</iconset>
+   </property>
+   <property name="text">
+    <string>开始</string>
+   </property>
+   <property name="toolTip">
+    <string>开始测量</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+    </font>
+   </property>
+   <property name="shortcut">
+    <string>F2</string>
+   </property>
+  </action>
+  <action name="action_reset">
+   <property name="icon">
+    <iconset resource="Icons/Icons.qrc">
+     <normaloff>:/toolbar/reset.png</normaloff>:/toolbar/reset.png</iconset>
+   </property>
+   <property name="text">
+    <string>复位</string>
+   </property>
+   <property name="toolTip">
+    <string>复位</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+    </font>
+   </property>
+   <property name="shortcut">
+    <string>F3</string>
+   </property>
+  </action>
+  <action name="action_result">
+   <property name="icon">
+    <iconset resource="Icons/Icons.qrc">
+     <normaloff>:/toolbar/display.png</normaloff>:/toolbar/display.png</iconset>
+   </property>
+   <property name="text">
+    <string>显示结果</string>
+   </property>
+   <property name="toolTip">
+    <string>显示结果</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+    </font>
+   </property>
+   <property name="shortcut">
+    <string>F4</string>
+   </property>
+  </action>
+  <action name="action_print">
+   <property name="icon">
+    <iconset resource="Icons/Icons.qrc">
+     <normaloff>:/toolbar/printer.png</normaloff>:/toolbar/printer.png</iconset>
+   </property>
+   <property name="text">
+    <string>打印报告</string>
+   </property>
+   <property name="toolTip">
+    <string>打印报告</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+    </font>
+   </property>
+   <property name="shortcut">
+    <string>F5</string>
+   </property>
+  </action>
+  <action name="action_back">
+   <property name="icon">
+    <iconset resource="Icons/Icons.qrc">
+     <normaloff>:/toolbar/disconnect.png</normaloff>:/toolbar/disconnect.png</iconset>
+   </property>
+   <property name="text">
+    <string>首页/断开</string>
+   </property>
+   <property name="toolTip">
+    <string>首页/断开</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+    </font>
+   </property>
+   <property name="shortcut">
+    <string>F7</string>
+   </property>
+  </action>
+  <action name="action_exit">
+   <property name="icon">
+    <iconset resource="Icons/Icons.qrc">
+     <normaloff>:/toolbar/door.png</normaloff>:/toolbar/door.png</iconset>
+   </property>
+   <property name="text">
+    <string>退出</string>
+   </property>
+   <property name="toolTip">
+    <string>退出软件</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+    </font>
+   </property>
+   <property name="shortcut">
+    <string>F8</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::WindowShortcut</enum>
+   </property>
+  </action>
+  <action name="action_read_report">
+   <property name="icon">
+    <iconset resource="Icons/Icons.qrc">
+     <normaloff>:/toolbar/readfiles.png</normaloff>:/toolbar/readfiles.png</iconset>
+   </property>
+   <property name="text">
+    <string>读取报告</string>
+   </property>
+   <property name="toolTip">
+    <string>读取报告</string>
+   </property>
+   <property name="shortcut">
+    <string>F6</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="Icons/Icons.qrc"/>
+  <include location="Lang/Lang.qrc"/>
+ </resources>
+ <connections/>
+</ui>

@@ -1,0 +1,35 @@
+一、软件开发环境：
+    1、 软件编写语言：python，采用2.7.3版本。
+    2、 开发FCY，python所需扩展模块：
+             PySide（Qt是4.*版本）
+             Numpy
+             Matplotlib （2.0版本以上）
+    3、 编译环境：pycharm2.7
+    4、 打包工具 pyinstaller2.0
+
+二、 软件中各部分简介：
+    1.采集卡驱动模块：
+	tcpdev/device/DeviceDriver.py
+
+    2.周立功和采集卡通信模块:
+	tcpdev/CommandDevice.py
+
+    3.lib/TcpLink.py  对与下位机的通信进行封装，即只需要通过TcpLink与下位机进行通信即可
+
+    4.lib/HandleData.py  封装了对采集数据的处理和计算函数
+
+    5.ui目录下为软件使用到得UI界面和相关UI逻辑
+	（1） MainWindow.py 软件的主窗口UI
+ 	（2） ConfigDialog.py 配置窗口UI
+ 	（3） CalibrationDialog.py 压力校准UI
+	（4） CurrentPress.py 准备前压力显示UI
+	（5） CurveWidget.py  曲线显示和绘制UI
+	（6） DefaultPart.py 界面初始UI
+	（7） Explain.py 右侧解释窗口UI，用于显示当前配置好的信息
+	（8） LCDGroup.py 右侧lcd显示控件集合UI
+	（9） NoticeWidget.py 上方用于显示当前操作的信息UI
+	（10）ProgressRate.py 进度条显示UI
+	（11）ReportDialog.py 	显示测试后结果的UI
+    6. 在UI_Designer目录下为与5对应的通过Q堂Designer设计的.ui文件，根目录下的.bat文件将ui文件转换为py文件。
+      
+      

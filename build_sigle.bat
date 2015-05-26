@@ -1,0 +1,1 @@
+pyside-uic UI_designer\ReportDialog.ui -o ui\Ui_ReportDialog.py
