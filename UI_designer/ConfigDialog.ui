@@ -860,18 +860,21 @@ font:15pt;
            </widget>
           </item>
           <item>
-           <widget class="QSpinBox" name="testTimer">
+           <widget class="QDoubleSpinBox" name="testTimer">
+            <property name="inputMethodHints">
+             <set>Qt::ImhDigitsOnly</set>
+            </property>
             <property name="suffix">
              <string>s</string>
             </property>
-            <property name="prefix">
-             <string/>
+            <property name="decimals">
+             <number>1</number>
             </property>
-            <property name="minimum">
-             <number>0</number>
+            <property name="singleStep">
+             <double>0.100000000000000</double>
             </property>
             <property name="value">
-             <number>10</number>
+             <double>10.000000000000000</double>
             </property>
            </widget>
           </item>
@@ -1307,7 +1310,6 @@ font:15pt;
   <tabstop>speed_chk</tabstop>
   <tabstop>trigger_combo</tabstop>
   <tabstop>testProject</tabstop>
-  <tabstop>testTimer</tabstop>
   <tabstop>test_shift</tabstop>
   <tabstop>projectName_edit</tabstop>
   <tabstop>person_edit</tabstop>

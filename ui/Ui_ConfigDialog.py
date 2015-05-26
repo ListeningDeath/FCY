@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'UI_designer\ConfigDialog.ui'
 #
-# Created: Fri Nov 01 11:10:30 2013
+# Created: Tue May 26 09:52:03 2015
 #      by: pyside-uic 0.2.14 running on PySide 1.1.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -409,10 +409,11 @@ class Ui_ConfigDialog(object):
         self.label_17.setFont(font)
         self.label_17.setObjectName("label_17")
         self.horizontalLayout_9.addWidget(self.label_17)
-        self.testTimer = QtGui.QSpinBox(self.groupBox_4)
-        self.testTimer.setPrefix("")
-        self.testTimer.setMinimum(0)
-        self.testTimer.setProperty("value", 10)
+        self.testTimer = QtGui.QDoubleSpinBox(self.groupBox_4)
+        self.testTimer.setInputMethodHints(QtCore.Qt.ImhDigitsOnly)
+        self.testTimer.setDecimals(1)
+        self.testTimer.setSingleStep(0.1)
+        self.testTimer.setProperty("value", 10.0)
         self.testTimer.setObjectName("testTimer")
         self.horizontalLayout_9.addWidget(self.testTimer)
         self.verticalLayout_2.addLayout(self.horizontalLayout_9)
@@ -614,8 +615,7 @@ class Ui_ConfigDialog(object):
         ConfigDialog.setTabOrder(self.default_press, self.speed_chk)
         ConfigDialog.setTabOrder(self.speed_chk, self.trigger_combo)
         ConfigDialog.setTabOrder(self.trigger_combo, self.testProject)
-        ConfigDialog.setTabOrder(self.testProject, self.testTimer)
-        ConfigDialog.setTabOrder(self.testTimer, self.test_shift)
+        ConfigDialog.setTabOrder(self.testProject, self.test_shift)
         ConfigDialog.setTabOrder(self.test_shift, self.projectName_edit)
         ConfigDialog.setTabOrder(self.projectName_edit, self.person_edit)
         ConfigDialog.setTabOrder(self.person_edit, self.loadConfigButton)
