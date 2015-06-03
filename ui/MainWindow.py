@@ -12,7 +12,7 @@ from lib.TcpLink import TcpLink
 from ConfigDialog import ConfigDialog
 from lib.HandleData import HandleData
 import os, datetime
-
+import time
 
 class MainWindow(QMainWindow, Ui_MainWindow):
 
@@ -82,6 +82,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             i.toggled.connect(self.lcdCheck)
         #数据收集阶段定时器，根据具体情况删减
         self.draw_timer = QTimer(self)
+        self.draw_timer.setInterval(100)
         self.connect(self.draw_timer,SIGNAL("timeout()"),self.waitDraw)
 
     def finishingLayout(self):
@@ -294,11 +295,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.notice_window.setNoticeText(u'系统正在测量，请等待......')
         self.notice_window.setValue(1)
         self.draw_count = 0
-        self.draw_timer.start(1000)
+        self.draw_timer.start(100)
 
     def waitDraw(self):
-        self.draw_count += 1
-        self.notice_window.setValue(self.notice_window.getValue() + 100/(self.measure_time+1))
+        self.draw_count += 0.1
+        self.notice_window.setValue(self.notice_window.getValue() + 10.0/(self.measure_time+1.0))
         if self.draw_count >= self.measure_time:
             self.draw()
 
@@ -307,6 +308,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.notice_window.setNoticeText(u'数据接收完毕，处理中......')
         self.draw_timer.stop()
         self.tcp_link.setClearFlag(True)
+
         data = self.tcp_link.getData()
         #若无数据直接返回
         if not data:
@@ -331,7 +333,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             x_data = [(i - num) * 5E-4 for i in range(length)]
         else:
             x_data = [i * 5E-4 for i in range(length)]
-        self.lines_data[0] = x_data[:right_limit]
+        self.lines_data[0] = x_data[:]
         #print self.exist_axis
         for i in range(10):
             y_data = data[i::16]
@@ -380,7 +382,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.report['SPEED'] = '--'
             self.report['ACCELERATION'] = '--'
         #图像填充全屏
-        self.curve_window.setXFull(self.lines_data[0][0], self.lines_data[0][-1])
+        tmp = self.lines_data[0]
+        xmin = self.lines_data[0][0]
+        xmax = self.lines_data[0][-1]
+        self.curve_window.setXFull(xmin, xmax)
         #延迟时间
         self.report['DELAY'] = '%0.1f' % (num * 5E-4)
         #发射时间

@@ -60,7 +60,7 @@ class Configuration(QWidget, Ui_Configuration):
 
             temp_trigger = [u"自动触发", u"手动触发", u"外触发"]
             self.trigger_lbl.setText(temp_trigger[config.getint('SPEED', 'pattern')])
-            self.time_lbl.setText("%ss" % config.getint('PARAMETERS', 'timer'))
+            self.time_lbl.setText("%ss" % config.getfloat('PARAMETERS', 'timer'))
             yulei = config.getfloat('PARAMETERS', 'yulei')
             youer = config.getfloat('PARAMETERS', 'youer')
             test_project = config.getint('PARAMETERS', 'progect')
