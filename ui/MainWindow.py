@@ -343,13 +343,16 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                 if i in self.exist_axis:
                     #不同测试类型取值不同
                     if self.groupNPTInfo[0] == 0:
-                        _value = max(y_data)
+
+                        _value = y_data[int(self.measure_time*2000)]
+                        #_value = max(y_data)
                         self.report['PRESS'][i + 1] = '%0.2f' % _value
                         if i == self.default_press:
                             self.report['PRESS'][i + 1] = '%0.2f' % (_value - self.init_press)
                             self.handle.setChamberPressure(self.lines_data[i + 1], self.init_press)
                     else:
-                        _value = y_data[speed_out]
+                        # _value = y_data[speed_out]
+                        _value = y_data[int(self.measure_time*2000)]
                         self.report['PRESS'][i + 1] = '%0.2f' % _value
                     self.curve_window.drawLine2D(self.exist_axis.index(i), self.lines_data[0], self.lines_data[i+1],
                                                  self.color_sheet[i])
